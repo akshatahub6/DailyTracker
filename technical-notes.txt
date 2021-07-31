@@ -1,0 +1,110 @@
+ANSIBLE Syntax check - 31-july-2021
+
+
+
+---
+- name: Update web servers
+  hosts: webservers
+  remote_user: root
+
+  tasks:
+  - name: Ensure apache is at the latest version
+    ansible.builtin.yum:
+      name: httpd
+      state: latest
+
+
+
+
+[webservers]
+server1
+server2
+
+
+
+become: yes
+root user change
+can we use become instead remote_user : false
+
+----------------------------------------------------------------------------------------------
+
+[root@jenkinstest ~]# ansible-playbook test.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! Syntax Error while loading YAML.
+  found a tab character that violate intendation
+
+The error appears to be in '/root/test.yml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Update web servers
+          hosts: webservers
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+[root@jenkinstest ~]#
+
+----------------------------------------------------------------------------------------------
+
+[root@jenkinstest ~]# ansible-playbook test.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Could not match supplied host pattern, ignoring: webservers
+
+playbook: test.yml
+
+--> after change webserver inventory to all.
+
+[root@jenkinstest ~]# ansible-playbook test.yml --syntax-check
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+playbook: test.yml
+[root@jenkinstest ~]#
+
+
+
+----------------------------------------------------------------------------------------------
+
+[root@jenkinstest ~]# ansible-playbook test.yml
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+ERROR! Syntax Error while loading YAML.
+  found a tab character that violate intendation
+
+The error appears to be in '/root/test.yml': line 3, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Update web servers
+          hosts: webservers
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+[root@jenkinstest ~]#
+----------------------------------------------------------------------------------------------
