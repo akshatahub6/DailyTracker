@@ -1,5 +1,6 @@
+----------------------------------------------------------------------------------------------
 ANSIBLE Syntax check - 31-july-2021
-
+----------------------------------------------------------------------------------------------
 
 
 ---
@@ -107,4 +108,35 @@ Should be written as:
         version: 1.2.3
 # ^--- all spaces here.
 [root@jenkinstest ~]#
+----------------------------------------------------------------------------------------------
+Httpd reference
+----------------------------------------------------------------------------------------------
+apache tomcat webserver
+apache http is server
+
+yum install httpd
+we can se 80 port has opened and apache service we need to start
+systemctl start httpd
+vi /usr/share/httpd/noindex/index.html  
+
+
+http configurationfile
+/etc/httpd/conf/httpd.conf
+Default derectory for webpages
+/var/www/html
+
+logs
+/var/log/messages
+/var/log/httpd/access_log
+/var/log/httpd/error_log
+Custom log
+
+https://stackoverflow.com/questions/19269961/how-to-unpackage-and-repackage-a-war-file
+
+https://phoenixnap.com/kb/create-local-yum-repository-centos
+
+----------------------------------------------------------------------------------------------
+
+
+
 ----------------------------------------------------------------------------------------------
