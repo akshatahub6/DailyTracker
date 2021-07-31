@@ -155,6 +155,7 @@ Discussion
 	accept ur mistake
 	softskill improve
 	Behave like a professional
+	sent link email.
 
 mistakes
 	not following
