@@ -154,6 +154,7 @@ Discussion
 	all good times gone
 	accept ur mistake
 	softskill improve
+	Behave like a professional
 
 mistakes
 	not following
@@ -167,9 +168,11 @@ Pending
 topics
 	sudo 
 	dry run and syntax check.
-
+-------------------------------------------------------------------------------------
 01/08/2021
-
+Agenda
+	repo setting using linux and httpd(pending)
+	ansible.cfg
 
 
 
