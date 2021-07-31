@@ -1,0 +1,207 @@
+06/06/2021
+
+Questions:
+
+1) Jenkins email notification
+2) Extention email
+3) Repos discusion
+   => disable & enable
+4) yum repos path
+5) worked on code pipeline
+
+12/06/2021
+*******Need to discuss
+1 )repos setting
+2 )bulk email sending
+3 )Automation on artifact moving whole content to bitbucket
+4 )create new pipeline which will initiate after the declarative pipeline
+5 ) export check 
+
+
+19/06/2021
+
+1)discussed on artifact path.
+2)setting enviroment variable.
+3)apache tomcat webserver ,apache http server, sample war file deployed using apache tomacat
+
+sample.war file application content after change it need to replicate in the output. 
+
+20/06/2021
+repos
+ftp,nfs
+
+26 and 27 of june
+/mnt/rpm/
+
+discussed about nginx
+repo package setting
+different methods : file,nfs,ftp,http
+trying to set repo using httptested 
+tested in aws server http repo setting got error tried on recover volume group but could not.
+softlink with httpd 
+
+03/07/20121 to 04/07/2021
+
+configured https cerificate
+going through roles in ansible
+
+
+
+
+10/07/2021
+
+trouble shooting on https port configuring for jenkins
+
+
+
+
+11/07/2021
+
+ec2 instance
+http 80
+https 443
+need to set redirection 80==> 443
+
+jenkins 8080
+jenkins 8443
+
+http url 80 ==> 443 ==> 8443
+
+http://3.128.170.78/
+https://3.128.170.78/
+
+16/07/2021  and  21/07/2021
+Total view discussed.
+
+
+25/07/2021
+discussed totalview pdf reference
+
+putty log setting
+C:\Users\eavimsk\Documents\KSPData\ReferDocs\PuttyLogs\&H_&D-&M-&Y_&T.log
+C:\putty_log\&H_&Y&M&D_&T.log
+
+path
+reading
+notes maintain
+cash mistake
+
+27/07/2021
+mistakes: 
+precheck - execution - postcheck
+ssh connectivity
+ansible
+
+28/07/2021
+mistake:
+1.daily notes not maintained
+2.line update not followed instructions
+3. useradd no observation no postcheck half reading.
+4. not properly answered
+analasys not done
+i have pieces of knowladge
+no presence of mind
+screen observation
+opposite responce
+
+added manually  jenkins user entry
+postcheck httpd stoped and jenkins (exit)
+
+29/07/2021
+checked on httpd failed
+reinstalled and changed in the configurationfile
+
+sudo nano /etc/httpd/conf.d/ssl.conf
+Find the section that begins with <VirtualHost _default_:443>. Uncomment the DocumentRoot and ServerName line and replace example.com with your server's IP address.
+
+DocumentRoot "/var/www/html"
+ServerName 192.168.1.42:443
+Next, find the SSLCertificateFile and SSLCertificateKeyFile lines and update them with the new location of the certificates.
+
+SSLEngine on
+
+DONT COPY PASTE BELOW CONTENT ALREADY THERE JUST REVERIFY
+
+SSLCertificateFile /etc/pki/tls/certs/ca.crt
+SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+
+funtion which command does wt? how to use
+oberservation
+refer old server
+siva s become sycho becuase my i am not improving.
+tune ur work.
+Gyana netra open
+
+workaround
+
+increased memory size
+given file permission for jenkins users
+remove extra . in the mail keyfile
+
+
+-------------------------------------------------------------------------------
+
+31/07/2021
+
+Agenda
+	ansible /etc/ansible/ansible.cfg
+	perforce
+	
+Discussion
+	dont do nonsense mistake
+	listen carefully
+	all good times gone
+	accept ur mistake
+	softskill improve
+
+mistakes
+	not following
+	cashe
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+	sudo 
+	dry run and syntax check.
+
+01/08/2021
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
