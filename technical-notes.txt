@@ -108,6 +108,52 @@ Should be written as:
         version: 1.2.3
 # ^--- all spaces here.
 [root@jenkinstest ~]#
+
+priviously dint mention inventory it was taking default inventory, now defined so no warning.
+
+[root@jenkinstest ~]# ansible-playbook -i akinv test.yml --syntax-check
+
+playbook: test.yml
+[root@jenkinstest ~]#
+
+
+
+
+[root@jenkinstest ~]# ansible-playbook -i akinv test.yml --check
+
+PLAY [Update web servers] ***********************************************************************************************************************************
+
+TASK [Gathering Facts] **************************************************************************************************************************************
+fatal: [10.3.15.176]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [jenkinstest]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+
+PLAY RECAP **************************************************************************************************************************************************
+10.3.15.176                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+jenkinstest                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@jenkinstest ~]#
+
+1. syntax check
+2. inventory 
+3. task execute
+
+syntaxcheck vs  check
+
+[root@jenkinstest ~]# vi test.yml
+[root@jenkinstest ~]# ansible-playbook -i akinv test.yml --check
+ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/root/test.yml': line 3, column 9, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Update web servers
+   hosts: all
+        ^ here
+[root@jenkinstest ~]#
+
 ----------------------------------------------------------------------------------------------
 Httpd reference
 ----------------------------------------------------------------------------------------------
