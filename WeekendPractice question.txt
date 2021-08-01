@@ -174,12 +174,53 @@ topics
 	dry run and syntax check.
 -------------------------------------------------------------------------------------
 01/08/2021
+
 Agenda
-	repo setting using linux and httpd(pending)
 	ansible.cfg
+	
+	
+Discussion
+	
 
+mistakes
+	below line gmail.
+	
 
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+	trying to understand ansible.cfg options when i was watching kk videos.
+	.ansible.cfg
+	why different ans.cfgs for web,db ,network.
+	
+Ansible configuration files
+	defults
+	current directory where you are running playbook command.
+	custum path (by using variable name)
+	ex: ANSIBLE_CFG=/opt/ansible-web.cfg
+-----------------------------------------------------------------
 
+----------------------------------------------------------------
+??/08/2021
+
+Agenda
+
+	
+	
+Discussion
+	
+
+mistakes
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+	
+----------------------------------------------------------------
+	
 
 
 
