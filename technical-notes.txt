@@ -183,6 +183,38 @@ https://phoenixnap.com/kb/create-local-yum-repository-centos
 
 ----------------------------------------------------------------------------------------------
 
+01/08/2021
+
+Agenda
+	ansible.cfg
+	
+	
+Discussion
+	
+
+mistakes
+	below line gmail.
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+	trying to understand ansible.cfg options when i was watching kk videos.
+	.ansible.cfg
+	why different ans.cfgs for web,db ,network.
+	
+Ansible configuration files
+	defults
+	current directory where you are running playbook command.
+	custum path (by using variable name)
+	ex: ANSIBLE_CFG=/opt/ansible-web.cfg
+-------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------
+	
+
+
 
 
 ----------------------------------------------------------------------------------------------
