@@ -156,6 +156,8 @@ Discussion
 	softskill improve
 	Behave like a professional
 	sent link email.
+	https://github.com/akshatahub6/DailyTracker/blob/main/WeekendPractice%20question.txt
+	created git hub repo and updated 2 files for future reference
 
 mistakes
 	not following
@@ -167,7 +169,8 @@ Pending
 	repo discussion (i tried not worked)i dint get time.
 	
 topics
-	sudo 
+	sudo
+	ANSIBLE Syntax check - 31-july-2021
 	dry run and syntax check.
 -------------------------------------------------------------------------------------
 01/08/2021
