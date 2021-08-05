@@ -212,6 +212,52 @@ Ansible configuration files
 -------------------------------------------------------------------------------------------
 Jenkins integrating with codeinsight
 ----------------------------------------------------------------
+
+keytool -importcert -alias baeldung_public_cert -file baeldung.cer -keystore sample_keystore
+
+keytool -importcert -alias codesight_public_cert -file flexcode.cer -keystore sample_keystore
+
+ keytool -importcert -alias baeldung_public_cert -file baeldung.cer -keystore sample_keystore -storetype PKCS12
+
+ keytool -importcert -alias codesight_public_cert -file flexcode.cer -keystore sample_keystore -storetype PKCS12
+
+
+
+
+keytool error: java.lang.Exception: Keystore file does not exist: /root/.keystore
+[root@jenkinsupgradevm ~]# keytool -importcert -alias codesight_public_cert -file flexcode.cer -keystore sample_keystore^C
+[root@jenkinsupgradevm ~]# keytool -list -storepass welcome123
+keytool error: java.lang.Exception: Keystore file does not exist: /root/.keystore
+
+
+
+[root@jenkinsupgradevm ~]# keytool -importcert -alias codesight_public_cert -file flexcode.cer
+Enter keystore password:
+Re-enter new password:
+Owner: CN=insight04.csdt.sjm.com, OU=Abbott EP, O=Abbott, L=St. Paul, ST=Minnesota, C=US
+Issuer: CN=insight04.csdt.sjm.com, OU=Abbott EP, O=Abbott, L=St. Paul, ST=Minnesota, C=US
+Serial number: 2877e448
+Valid from: Wed Apr 21 13:17:46 CDT 2021 until: Fri Feb 28 12:17:46 CST 2031
+Certificate fingerprints:
+         SHA1: 29:08:45:70:37:11:C7:48:59:98:3C:8B:6C:42:19:DE:38:34:14:EC
+         SHA256: 3B:33:7D:7B:EB:6B:E5:B3:F7:D1:7A:A8:FA:80:39:CD:D7:1F:C3:74:37:C9:1F:BC:A8:EB:64:DE:B9:0B:BE:6D
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key (3)
+Version: {10}
+
+Extensions:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 45 6B AB B6 B4 67 50 C4   26 51 29 95 CE 9D 30 7C  Ek...gP.&Q)...0.
+0010: FF 9B 3F 98                                        ..?.
+]
+]
+
+Trust this certificate? [no]:  y
+Certificate was added to keystore
+[root@jenkinsupgradevm ~]#
 	
 [root@jenkinsupgradevm ~]# java --version
 Unrecognized option: --version
