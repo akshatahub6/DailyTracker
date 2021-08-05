@@ -210,9 +210,129 @@ Ansible configuration files
 	custum path (by using variable name)
 	ex: ANSIBLE_CFG=/opt/ansible-web.cfg
 -------------------------------------------------------------------------------------------
-
+Jenkins integrating with codeinsight
 ----------------------------------------------------------------
 	
+[root@jenkinsupgradevm ~]# java --version
+Unrecognized option: --version
+Error: Could not create the Java Virtual Machine.
+Error: A fatal exception has occurred. Program will exit.
+[root@jenkinsupgradevm ~]# java -version
+openjdk version "1.8.0_292"
+OpenJDK Runtime Environment (build 1.8.0_292-b10)
+OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
+[root@jenkinsupgradevm ~]# which java
+/usr/bin/java
+[root@jenkinsupgradevm ~]# ls -l /usr/bin/java
+lrwxrwxrwx. 1 root root 22 Jul 28 02:07 /usr/bin/java -> /etc/alternatives/java
+[root@jenkinsupgradevm ~]# ls -l /etc/alternatives/java
+lrwxrwxrwx. 1 root root 73 Jul 28 02:07 /etc/alternatives/java -> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/bin/java
+[root@jenkinsupgradevm ~]# ls -l /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/bin/java
+-rwxr-xr-x. 1 root root 8984 Apr 21 09:54 /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/bin/java
+[root@jenkinsupgradevm ~]# /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/bin/java -version
+openjdk version "1.8.0_292"
+OpenJDK Runtime Environment (build 1.8.0_292-b10)
+OpenJDK 64-Bit Server VM (build 25.292-b10, mixed mode)
+[root@jenkinsupgradevm ~]#
+
+
+The keystore is : jre/lib/security/cacerts . You can list its contents by: keytool -list -keystore java.home/jre/lib/security/cacerts -v.
+
+keytool -list -keystore java.home/jre/lib/security/cacerts -v
+
+
+
+[root@jenkinsupgradevm ~]# ls -l /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/
+total 180
+-rw-r--r--.  1 root root   1522 Apr 21 09:28 ASSEMBLY_EXCEPTION
+drwxr-xr-x.  2 root root    188 Jul 28 02:07 bin
+drwxr-xr-x. 10 root root   4096 Jul 28 02:07 lib
+-rw-r--r--.  1 root root  19274 Apr 21 09:28 LICENSE
+-rw-r--r--.  1 root root 155003 Apr 21 09:28 THIRD_PARTY_README
+[root@jenkinsupgradevm ~]# ls -l /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/
+total 0
+drwxr-xr-x. 4 root root 95 Jul 28 02:07 jre
+[root@jenkinsupgradevm ~]# JAVA_HOME=/usr/bin/java
+[root@jenkinsupgradevm ~]# echo $JAVA_HOME
+/usr/bin/java
+[root@jenkinsupgradevm ~]#
+[root@jenkinsupgradevm ~]#
+[root@jenkinsupgradevm ~]# cd /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/
+[root@jenkinsupgradevm jre]# ls -l
+total 180
+-rw-r--r--.  1 root root   1522 Apr 21 09:28 ASSEMBLY_EXCEPTION
+drwxr-xr-x.  2 root root    188 Jul 28 02:07 bin
+drwxr-xr-x. 10 root root   4096 Jul 28 02:07 lib
+-rw-r--r--.  1 root root  19274 Apr 21 09:28 LICENSE
+-rw-r--r--.  1 root root 155003 Apr 21 09:28 THIRD_PARTY_README
+[root@jenkinsupgradevm jre]# cd lib/
+[root@jenkinsupgradevm lib]# ls -l
+total 82132
+drwxr-xr-x. 5 root root     4096 Jul 28 02:07 amd64
+drwxr-xr-x. 2 root root        6 Apr 21 09:28 applet
+-rw-r--r--. 1 root root     2479 Apr 21 09:28 calendars.properties
+-rw-r--r--. 1 root root  3203265 Apr 21 09:28 charsets.jar
+-rw-r--r--. 1 root root    84311 Apr 21 09:28 classlist
+drwxr-xr-x. 2 root root       89 Jul 28 02:07 cmm
+-rw-r--r--. 1 root root     5916 Apr 21 09:28 content-types.properties
+-r--r--r--. 1 root root     4102 Apr 21 09:28 currency.data
+drwxr-xr-x. 2 root root      203 Jul 28 02:07 ext
+-rw-r--r--. 1 root root     3901 Apr 21 09:28 flavormap.properties
+-rw-r--r--. 1 root root    14959 Apr 21 09:28 hijrah-config-umalqura.properties
+drwxr-xr-x. 3 root root       21 Jul 28 02:07 images
+-rw-r--r--. 1 root root   108816 Apr 21 09:28 jce.jar
+-rwxr-xr-x. 1 root root    13736 Apr 21 09:54 jexec
+drwxr-xr-x. 2 root root       44 Jul 28 02:07 jfr
+-rw-r--r--. 1 root root  1029592 Apr 21 09:28 jfr.jar
+-rw-r--r--. 1 root root  2204034 Apr 21 09:28 jsse.jar
+-rw-r--r--. 1 root root     4226 Apr 21 09:28 jvm.hprof.txt
+-rw-r--r--. 1 root root     2455 Apr 21 09:28 logging.properties
+drwxr-xr-x. 2 root root      119 Jul 28 02:07 management
+-rw-r--r--. 1 root root      377 Apr 21 09:28 management-agent.jar
+-rw-r--r--. 1 root root     1955 Apr 21 09:28 meta-index
+-rw-r--r--. 1 root root     5352 Apr 21 09:28 net.properties
+-rw-r--r--. 1 root root    11390 Apr 21 09:28 psfontj2d.properties
+-rw-r--r--. 1 root root     3793 Apr 21 09:28 psfont.properties.ja
+-rw-r--r--. 1 root root  3530602 Apr 21 09:28 resources.jar
+-rw-r--r--. 1 root root 73816590 Apr 21 09:28 rt.jar
+drwxr-xr-x. 3 root root      115 Jul 28 02:07 security
+-rw-r--r--. 1 root root     1210 Apr 21 09:28 sound.properties
+lrwxrwxrwx. 1 root root       30 Jul 28 02:07 tzdb.dat -> /usr/share/javazi-1.8/tzdb.dat
+[root@jenkinsupgradevm lib]# cd security/
+[root@jenkinsupgradevm security]# ls -l
+total 64
+-rw-r--r--. 1 root root  2488 Apr 21 09:28 blacklisted.certs
+lrwxrwxrwx. 1 root root    41 Jul 28 02:07 cacerts -> ../../../../../../../etc/pki/java/cacerts
+-rw-r--r--. 1 root root  2567 Apr 21 09:28 java.policy
+-rw-r--r--. 1 root root 50556 Dec 31  2013 java.security
+-rw-r--r--. 1 root root   139 Apr 21 09:29 nss.cfg
+drwxr-xr-x. 4 root root    38 Jul 28 02:07 policy
+[root@jenkinsupgradevm security]# cd cacerts
+-bash: cd: cacerts: Not a directory
+[root@jenkinsupgradevm security]# keytool -list -keystore java.home/jre/lib/security/cacerts -v
+keytool error: java.lang.Exception: Keystore file does not exist: java.home/jre/lib/security/cacerts
+java.lang.Exception: Keystore file does not exist: java.home/jre/lib/security/cacerts
+        at sun.security.tools.keytool.Main.doCommands(Main.java:781)
+        at sun.security.tools.keytool.Main.run(Main.java:377)
+        at sun.security.tools.keytool.Main.main(Main.java:370)
+[root@jenkinsupgradevm security]# keytool -list -keystore ./cacerts -v
+Enter keystore password:
+keytool error: java.io.IOException: Keystore was tampered with, or password was incorrect
+java.io.IOException: Keystore was tampered with, or password was incorrect
+        at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:792)
+        at sun.security.provider.JavaKeyStore$JKS.engineLoad(JavaKeyStore.java:57)
+        at sun.security.provider.KeyStoreDelegator.engineLoad(KeyStoreDelegator.java:224)
+        at sun.security.provider.JavaKeyStore$DualFormatJKS.engineLoad(JavaKeyStore.java:71)
+        at java.security.KeyStore.load(KeyStore.java:1445)
+        at sun.security.tools.keytool.Main.doCommands(Main.java:939)
+        at sun.security.tools.keytool.Main.run(Main.java:377)
+        at sun.security.tools.keytool.Main.main(Main.java:370)
+Caused by: java.security.UnrecoverableKeyException: Password verification failed
+        at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:790)
+        ... 7 more
+[root@jenkinsupgradevm security]# 
+
+
 
 
 
