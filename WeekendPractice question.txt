@@ -206,11 +206,7 @@ Agenda
 	discussed on issue related certificate creation		
 	
 	
-Discussion
-	
 
-mistakes
-	
 topics
 	created different jobs as per changes in setting.
 	
@@ -218,7 +214,7 @@ topics
 05/08/2021
 
 Agenda
-		
+	discussed on issue related certificate creation in jenkins server.		
 	
 	
 Discussion
@@ -245,11 +241,15 @@ topics
 
 google serach got one soulution testing that.
 	https://www.baeldung.com/java-import-cer-certificate-into-keystore
+	refer technical document
+	
+	
+	
 ----------------------------------------------------------------
-??/08/2021
+06/08/2021
 
 Agenda
-
+	discussed on issue related certificate creation
 	
 	
 Discussion
