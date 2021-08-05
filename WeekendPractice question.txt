@@ -200,7 +200,51 @@ Ansible configuration files
 	custum path (by using variable name)
 	ex: ANSIBLE_CFG=/opt/ansible-web.cfg
 -----------------------------------------------------------------
+04/08/2021
 
+Agenda
+	discussed on issue related certificate creation		
+	
+	
+Discussion
+	
+
+mistakes
+	
+topics
+	created different jobs as per changes in setting.
+	
+----------------------------------------------------------------
+05/08/2021
+
+Agenda
+		
+	
+	
+Discussion
+	dont do,
+	copy paste edit anyone can do without knowledge.
+	people do trial and error when they have half knowledge.
+	dont do trial and error.
+	execute command if you are 100% sure what it is going to do?
+	come out of safe zone.
+	money ll not get easily how knowledge will come?
+	
+
+mistakes
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+    	use right keywords while seaching.
+	dont give sentence.
+	refer 4 to 5 link choose best which you understand.
+	read the content of the match page.
+
+google serach got one soulution testing that.
+	https://www.baeldung.com/java-import-cer-certificate-into-keystore
 ----------------------------------------------------------------
 ??/08/2021
 
