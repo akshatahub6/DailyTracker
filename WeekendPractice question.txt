@@ -246,7 +246,32 @@ google serach got one soulution testing that.
 	
 	
 ----------------------------------------------------------------
+	
+----------------------------------------------------------------
 06/08/2021
+
+	nothing discussed just gave update.
+----------------------------------------------------------------
+07/08/2021
+Agenda
+	discussed on issue related certificate creation regarding commands execution.
+	declarative pipeline
+	try to unserstand docs.
+	
+	
+Discussion
+	
+
+mistakes
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+------------------------------------------------------------------------------------------
+
+??/08/2021
 
 Agenda
 	discussed on issue related certificate creation
@@ -262,9 +287,6 @@ Pending
 	repo discussion (i tried not worked)i dint get time.
 	
 topics
-	
-----------------------------------------------------------------
-	
 
 
 
