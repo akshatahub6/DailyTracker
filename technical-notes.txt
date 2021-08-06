@@ -384,3 +384,23 @@ Caused by: java.security.UnrecoverableKeyException: Password verification failed
 
 
 ----------------------------------------------------------------------------------------------
+
+
+  399  keytool -list -cacerts
+  400  keytool -import -noprompt -trustcacerts -alias flexcert -file /var/tmp/flexcert.cer -keystore /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/lib/security/cacerts -storepass changeit
+  401  keytool -list -keystore /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre/lib/security/cecerts
+  
+  
+  ----------------------------------------------------------------------------------------------
+  06/07/2021
+  pipeline  {
+    agent any
+        stages {
+            stage('Checkout build and scan project1') {
+                steps {
+                   git changelog: false, credentialsId: '817445d3-1c13-4755-90da-29aac97c3edd', poll: false, url: 'https://github.com/akshatahub6/hello-world'StartScan alias: 'insight04_ss', baseUrl: 'https://insight04.csdt.sjm.com:8888/', host: 'insight04.csdt.sjm.com', projectName: 'Courier-4.0.4', token: 	          'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNjI4MTg2MTI5fQ.BXDlaQTumLnW0TK8L8SJmXutgSeiBkZqO3uPBdPP0GUDT6wT5XKNF9Ef2py3nRoj-x5X5N_yTiA413MrZzU30A'
+                }
+            }
+        }
+}
+  
