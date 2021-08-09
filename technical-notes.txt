@@ -404,3 +404,130 @@ Caused by: java.security.UnrecoverableKeyException: Password verification failed
         }
 }
   
+08/08/2021
+
+
+399  keytool -list -cacerts
+  400  keytool -import -noprompt -trustcacerts -alias flexcert -file /var/tmp/fl                                                                             excert.cer -keystore /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_6                                                                             4/jre/lib/security/cacerts -storepass changeit
+  401  keytool -list -keystore /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.e                                                                             l7_9.x86_64/jre/lib/security/cecerts
+
+----------------------------------------------------------------------------------------------------
+current
+
+editting
+
+pipeline {
+    agent any
+    stages {
+        stage('Checkout build and scan project1') {
+            steps {
+git changelog: false, credentialsId: '817445d3-1c13-4755-90da-29aac97c3edd', poll: false, url: 'https://github.com/akshatahub6/hello-world'
+sh "'/bin/mvn' clean install" 
+StartScan alias: 'insight04_ss', baseUrl: 'https://insight04.csdt.sjm.com:8888/codeinsight/', host: 'insight04.csdt.sjm.com', projectName: 'Courier 3.0.4', token: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNjI4MTg2MTI5fQ.BXDlaQTumLnW0TK8L8SJmXutgSeiBkZqO3uPBdPP0GUDT6wT5XKNF9Ef2py3nRoj-x5X5N_yTiA413MrZzU30A'
+            }
+        }
+}
+}
+
+
+pipeline {
+    	agent any
+	stages {
+		stage('Checkout build and scan project1') {
+			steps {
+git url: 'https://github.com/akshatahub6/hello-world'
+sh "'/usr/bin/mvn' clean install"
+StartScan alias: 'insight04_ss', baseUrl: 'https://insight04.csdt.sjm.com:8888/codeinsight/', host: 'insight04.csdt.sjm.com', projectName: 'Courier 3.0.4', token: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNjI4MTg2MTI5fQ.BXDlaQTumLnW0TK8L8SJmXutgSeiBkZqO3uPBdPP0GUDT6wT5XKNF9Ef2py3nRoj-x5X5N_yTiA413MrZzU30A')
+		}
+	}
+}
+}
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+
+pipeline  {
+    agent any
+        stages {
+            stage('Checkout build and scan project1') {
+                steps {
+                   git changelog: false, credentialsId: '817445d3-1c13-4755-90da-29aac97c3edd', poll: false, url: 'https://github.com/akshatahub6/hello-world'StartScan alias: 'insight04_ss', baseUrl: 'https://insight04.csdt.sjm.com:8888/', host: 'insight04.csdt.sjm.com', projectName: 'Courier-4.0.4', token: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNjI4MTg2MTI5fQ.BXDlaQTumLnW0TK8L8SJmXutgSeiBkZqO3uPBdPP0GUDT6wT5XKNF9Ef2py3nRoj-x5X5N_yTiA413MrZzU30A'
+                }
+            }
+        }
+}
+
+
+----------------------------------------------------------------------------------------------------
+
+pipeline {
+agent any
+stages {
+stage('Checkout build and scan project1') {
+steps {
+git credentialsId: 'akshatahub6', url: 'https://github.com/akshatahub6/hello-world.git'
+sh "'PATH_TO_MAVEN/bin/mvn' clean install"
+StartScan (baseUrl: '<http://HOST_NAME:PORT/>', projectName: '<CODEINSIGHT_PROJECT_NAME>', alias:
+'<SCAN-AGENT_ALIAS>', host: '<SCAN-AGENT_HOST>', token: '<JWT_TOKEN>')
+}
+}
+}
+}
+
+----------------------------------------------------------------------------------------------------
+
+Started by user akshata
+Running in Durability level: MAX_SURVIVABILITY
+org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+WorkflowScript: 4: Unknown stage section "StartScan". Starting with version 0.5, steps in a stage must be in a ‘steps’ block. @ line 4, column 9.
+           stage('Checkout build and scan project1') {
+           ^
+
+WorkflowScript: 4: Expected one of "steps", "stages", or "parallel" for stage "Checkout build and scan project1" @ line 4, column 9.
+           stage('Checkout build and scan project1') {
+           ^
+
+2 errors
+
+	at org.codehaus.groovy.control.ErrorCollector.failIfErrors(ErrorCollector.java:310)
+	at org.codehaus.groovy.control.CompilationUnit.applyToPrimaryClassNodes(CompilationUnit.java:1085)
+	at org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(CompilationUnit.java:603)
+	at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:581)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:558)
+	at groovy.lang.GroovyClassLoader.doParseClass(GroovyClassLoader.java:298)
+	at groovy.lang.GroovyClassLoader.parseClass(GroovyClassLoader.java:268)
+	at groovy.lang.GroovyShell.parseClass(GroovyShell.java:688)
+	at groovy.lang.GroovyShell.parse(GroovyShell.java:700)
+	at org.jenkinsci.plugins.workflow.cps.CpsGroovyShell.doParse(CpsGroovyShell.java:142)
+	at org.jenkinsci.plugins.workflow.cps.CpsGroovyShell.reparse(CpsGroovyShell.java:127)
+	at org.jenkinsci.plugins.workflow.cps.CpsFlowExecution.parseScript(CpsFlowExecution.java:571)
+	at org.jenkinsci.plugins.workflow.cps.CpsFlowExecution.start(CpsFlowExecution.java:523)
+	at org.jenkinsci.plugins.workflow.job.WorkflowRun.run(WorkflowRun.java:337)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+Finished: FAILURE
+
+---------------------------------------------------------------------------------------------
+working declarative pipeline
+---------------------------------------------------------------------------------------------
+pipeline {
+    	agent any
+	stages {
+		stage('Checkout build and scan project1') {
+			steps {
+git url: 'https://github.com/akshatahub6/hello-world'
+sh "'/usr/bin/mvn' clean install"
+StartScan alias: 'insight04_ss', baseUrl: 'https://insight04.csdt.sjm.com:8888/codeinsight/', host: 'insight04.csdt.sjm.com', projectName: 'Courier 3.0.4', token: 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJJZCI6MSwiaWF0IjoxNjI4MTg2MTI5fQ.BXDlaQTumLnW0TK8L8SJmXutgSeiBkZqO3uPBdPP0GUDT6wT5XKNF9Ef2py3nRoj-x5X5N_yTiA413MrZzU30A')
+		}
+	}
+}
+}
+
+
+---------------------------------------------------------------------------------------------
