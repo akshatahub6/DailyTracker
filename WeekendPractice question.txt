@@ -290,9 +290,13 @@ Agenda
 	
 	
 Discussion
+	fixed declarative pipeline.
+	refer technical document
 	
 
 mistakes
+	/usr/bin/mvn
+	1hour extended
 ------------------------------------------------------------------------------------------
 
 ??/08/2021
