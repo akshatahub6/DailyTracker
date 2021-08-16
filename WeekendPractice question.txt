@@ -299,7 +299,23 @@ mistakes
 	1hour extended
 ------------------------------------------------------------------------------------------
 
-??/08/2021
+12/08/2021
+
+Agenda
+	discussed on issue related certificate creation
+just discussed on office issue	
+	
+Discussion
+	
+
+mistakes
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+
 
 Agenda
 	discussed on issue related certificate creation
@@ -315,6 +331,7 @@ Pending
 	repo discussion (i tried not worked)i dint get time.
 	
 topics
+
 
 
 
