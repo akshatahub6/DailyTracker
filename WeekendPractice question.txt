@@ -334,6 +334,49 @@ Pending
 	
 topics
 
+----------------------------------------------------------------------------------------------
+
+04/09/21
+
+Agenda
+	squish installation using rpm
+	interview discussion
+	
+	
+Discussion
+	
+
+mistakes
+	rpm installation using yum
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+
+
+
+------------------------------------------------------------------------
+05/09/2021
+Agenda
+	copy datacenter one server to other prod server.
+	resume
+	
+	
+Discussion
+	
+
+mistakes
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+
+-------------------------------------------------------------------
+Template
 
 Agenda
 	discussed on issue related certificate creation
@@ -349,10 +392,6 @@ Pending
 	repo discussion (i tried not worked)i dint get time.
 	
 topics
-
-
-
-
 
 
 
