@@ -317,6 +317,24 @@ Pending
 topics
 
 
+27/08/2021
+
+Agenda
+	discussed on issue related keystore giving trouble. keystore.crt changed name in vi file.
+just discussed on office issue	
+	
+Discussion
+	
+
+mistakes
+	
+
+Pending
+	repo discussion (i tried not worked)i dint get time.
+	
+topics
+
+
 Agenda
 	discussed on issue related certificate creation
 	
