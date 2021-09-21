@@ -529,5 +529,105 @@ StartScan alias: 'insight04_ss', baseUrl: 'https://insight04.csdt.sjm.com:8888/c
 }
 }
 
+---------------------------------------------------------------------------------------------
+Helix-swarm
+---------------------------------------------------------------------------------------------
+
+16 and 17 sep 2021
+
+ [root@swarmtest01 swarm-helix]# rpm -ivh yum/rhel/7/x86_64/helix-swarm-2016.3-1472982.el7.x86_64.rpm
+warning: yum/rhel/7/x86_64/helix-swarm-2016.3-1472982.el7.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 0ff18869: NOKEY
+error: Failed dependencies:
+        helix-cli-base is needed by helix-swarm-2016.3-1472982.el7.x86_64
+        httpd >= 2.2.15 is needed by helix-swarm-2016.3-1472982.el7.x86_64
+        perl-Digest-MD5 is needed by helix-swarm-2016.3-1472982.el7.x86_64
+        php >= 5.3.3 is needed by helix-swarm-2016.3-1472982.el7.x86_64
+        php-xml >= 5.3.3 is needed by helix-swarm-2016.3-1472982.el7.x86_64
+        php-mbstring >= 5.3.3 is needed by helix-swarm-2016.3-1472982.el7.x86_64
+[root@swarmtest01 swarm-helix]# rpm -ivh yum/rhel/7/x86_64/helix-swarm-optional-2016.3-1472982.el7.x86_64.rpm
+warning: yum/rhel/7/x86_64/helix-swarm-optional-2016.3-1472982.el7.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 0ff18869: NOKEY
+error: Failed dependencies:
+        helix-swarm is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        php-pecl-imagick is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        php-pecl-zendopcache is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        libreoffice-calc is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        libreoffice-draw is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        libreoffice-headless is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        libreoffice-impress is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+        libreoffice-writer is needed by helix-swarm-optional-2016.3-1472982.el7.x86_64
+[root@swarmtest01 swarm-helix]# rpm -ivh yum/rhel/7/x86_64/helix-swarm-triggers-2016.3-1472982.el7.x86_64.rpm
+warning: yum/rhel/7/x86_64/helix-swarm-triggers-2016.3-1472982.el7.x86_64.rpm: Header V4 RSA/SHA1 Signature, key ID 0ff18869: NOKEY
+error: Failed dependencies:
+        helix-cli-base is needed by helix-swarm-triggers-2016.3-1472982.el7.x86_64
+        perl(Digest::MD5) is needed by helix-swarm-triggers-2016.3-1472982.el7.x86_64
+
+--------------------------------------------------------------------------------------
+
+https://www.perforce.com/manuals/swarm/Content/Swarm/setup.packages.html#Install_and_configure_Swarm_from_a_package
+
+Create the file /etc/yum.repos.d/perforce.repo with the following content:
+
+[Perforce]
+name=Perforce
+baseurl=http://package.perforce.com/yum/rhel/7/x86_64/
+enabled=1
+gpgcheck=1
+
+rpm --import https://package.perforce.com/perforce.pubkey
+
+
+output:
+
+
+[root@swarmtest01 swarm-helix]# rpm -ivh yum/rhel/7/x86_64/helix-swarm-2016.3-1472982.el7.x86_64.rpm
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:helix-swarm-2016.3-1472982.el7   ################################# [100%]
+helix-swarm: restarting Apache...
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::
+::  Swarm is now installed, but not yet configured.
+::  You must run the following to configure Swarm (as root):
+::
+::      /opt/perforce/swarm/sbin/configure-swarm.sh
+::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+------------------------------------------------------------------------------------
+
+
+[root@swarmtest01 swarm-helix]# rpm -ivh yum/rhel/7/x86_64/helix-swarm-optional-2016.3-1472982.el7.x86_64.rpm
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:helix-swarm-optional-2016.3-14729################################# [100%]
+helix-swarm-optional: restarting Apache to ensure PHP Imagick extension is loaded...
+[root@swarmtest01 swarm-helix]#
+
+------------------------------------------------------------------------------------
+
+[root@swarmtest01 swarm-helix]# rpm -ivh yum/rhel/7/x86_64/helix-swarm-triggers-2016.3-1472982.el7.x86_64.rpm
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:helix-swarm-triggers-2016.3-14729################################# [100%]
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::
+::  Swarm Triggers are now installed, but not configured.
+::  You must edit the following file as appropriate:
+::
+::      /opt/perforce/etc/swarm-trigger.conf
+::
+::  Ensure you create the triggers in your Helix Versioning Engine.
+::
+::  Reference:
+::  http://www.perforce.com/perforce/doc.current/manuals/swarm/setup.perforce.html#setup.perforce.triggers.linux
+::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+------------------------------------------------------------------------------------
+endocardial
+
+ZSE$4rfvNJI(9ol.
 
 ---------------------------------------------------------------------------------------------
